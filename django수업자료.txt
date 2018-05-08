@@ -126,3 +126,9 @@ __str__()
 
 
 https://github.com/niceman5/django-blog-app.git
+
+
+?P<pk>\d+
+
+?P<pk>  django에서 사용하는 형식이라고 함.
+
