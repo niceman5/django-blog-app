@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from blog.models import Post
+from blog.models import Post, Comment
+
 
 class PostAdmin( admin.ModelAdmin):
     #title컬럼
@@ -17,3 +18,4 @@ class PostAdmin( admin.ModelAdmin):
 
 #생성한 application을 등록
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comment)

@@ -1,6 +1,7 @@
 # djang.forms가 아니라 djang로 import
 from django import forms
-from .models import Post
+from .models import Post, Comment
+
 
 #validator함수지정
 def min_lengthn_3_validator(value):
@@ -15,3 +16,9 @@ class PostModelForm(forms.ModelForm):
 class PostForm(forms.Form):
     title = forms.CharField(validators=[min_lengthn_3_validator])
     text = forms.CharField(widget=forms.Textarea)
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)
