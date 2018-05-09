@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
@@ -55,11 +56,21 @@ def post_new_form(request):
         #print(form)
         if form.is_valid():
             print(form.cleaned_data)
-            post = Post(author=request.user,
-                        title = form.cleaned_data['title'],
-                        text = form.cleaned_data['text'],
-                        published_date=timezone.now())
-            post.save()
+            #방법1 Post객체생성 save()호출
+            # post = Post(author=request.user,
+            #             title = form.cleaned_data['title'],
+            #             text = form.cleaned_data['text'],
+            #             published_date=timezone.now())
+            # post.save()
+
+            #방법2 Post.objects.create() 호출
+            post = Post.objects.create(
+                author=request.user,
+                title = form.cleaned_data['title'],
+                text = form.cleaned_data['text'],
+                published_date=timezone.now()
+            )
+
             return redirect('post_detail', pk=post.pk)
         else:   #검증에 실패
             print(form.errors)
@@ -68,3 +79,29 @@ def post_new_form(request):
         form = PostForm()
 
     return render(request, 'blog/post_form.html', {'form':form} )
+
+
+#수정 ModelForm사용
+@login_required
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    print('test')
+    if request.method =="POST":
+        form = PostModelForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostModelForm(instance=post)
+    return render(request, 'blog/post_edit.html', {'form':form} )
+
+
+#삭제
+@login_required
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('post_list')

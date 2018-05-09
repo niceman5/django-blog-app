@@ -84,51 +84,19 @@ TIME_ZONE = 'Asia/Seoul'
 
 python manage.py createsuperuser
 
-ORM ¸ÅÇÎ Rule
-Class <==> Table
-Object <==> Row
-(instance)
-variable <==> Column
-(property)
-
-javaÀÇ °æ¿ì °´Ã¼¼±¾ğÇÏ°í ¸¸µé¸é toString()À» ¸¸µë
-println(post.toString())  --> class¿¡ °üÇÑ Á¤º¸
-
-PythonÀº 
-__str__()
+db¸í mysite
+id : django
+pw : gustnr35!
 
 
-Á¤±ÔÇ¥Çö½Ä
-[]ÀÔ·Â¹üÀ§ {}ÀÚ¸®¼ö
-
-Á¤±ÔÇ¥Çö½Ä¿¹½Ã
-?ÃÖ´ë3ÀÚ¸®¼ıÀÚ: "[0-9]{1,3}" È¤Àº"\d{1,3}"
-?ÈŞ´ëÆù¹øÈ£: "010[1-9]\d{7}¡°
-?ÇÑ±ÛÀÌ¸§2±ÛÀÚÈ¤Àº3±ÛÀÚ: "[¤¡-ÆR]{2,3}"
-?¼ºÀÌ"ÀÌ" ŸÚÀÌ¸§: "ÀÌ[¤¡-ÆR]{1,2}"
-
-´Ù¾çÀ™1±ÛÀÚÆĞÅÏ
-?¼ıÀÚ1±ÛÀÚ: "[0123456789]" ¶Ç´Â"[0-9]" ¶Ç´Â"\d"
-?¾ËÆÄºª¼Ò¹®ÀÚ1±ÛÀÚ: "[abcdefghijklmnopqrstuvwxyz]" È¤Àº"[a-z]"
-?¾ËÆÄºª´ë¹®ÀÚ1±ÛÀÚ: "[ABCDEFGHIJKLMNOPQRSTUVWXYZ]" È¤Àº"[A-Z]"
-?¾ËÆÄºª´ë/¼Ò¹®ÀÚ1±ÛÀÚ: "[a-zA-Z]"
-?16£’¼ö1±ÛÀÚ: "[0-9a-fA-F]"
-?¹®ÀÚ¿­ÀÇ½ÃÀÛÀ»ÁöÁ¤: "^"
-?¹®ÀÚ¿­ÀÇ³¡À»ÁöÁ¤: "$"
-?ÇÑ±Û1±ÛÀÚ: "[¤¡-ÆR]"
-?"\d?" : ¼ıÀÚ0È¸¶Ç´Â1È¸
-?"\d*" : ¼ıÀÚ0È¸ÀÌ»ó
-?"\d+" : ¼ıÀÚ1È¸ÀÌ»ó
-?"\d{m}" : ¼ıÀÚm±ÛÀÚ
-?"\d{m,n}" : ¼ıÀÚm±ÛÀÚÀÌ»ó, n±ÛÀÚÀÌÇÏ
-?ÁÖÀÇ: Á¤±ÔÇ¥Çö½ÄÀº¶ç¿ö¾²±âÇÏ³ª¿¡µµ¹Î°¨ÇÕ´Ï´Ù.
+python manage.py createsuperuser
+django°èÁ¤
+id : admin
+pw : djangoadmin
 
 
+angular ¿Í django°°ÀÌ »ç¿ë½Ã 
+{{}} ¹®Á¦ verbatim À» Ã£¾Æ º¼°Í
 
-https://github.com/niceman5/django-blog-app.git
 
-
-?P<pk>\d+
-
-?P<pk>  django¿¡¼­ »ç¿ëÇÏ´Â Çü½ÄÀÌ¶ó°í ÇÔ.
-
+http://pymssql.org/en/stable/_mssql_examples.html
