@@ -32,6 +32,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 
+<<<<<<< HEAD
 # 신규 등록 ModelForm사용
 def post_new(request):
     if request.method == "POST":
@@ -133,3 +134,9 @@ def comment_remove(request, pk):
     post_pk= comment.post.pk
     comment.delete()
     return redirect('post_detail', pk=post_pk)
+=======
+#신규등록 
+def post_new(request):
+    
+    return ""
+>>>>>>> blog/views.py 수정
